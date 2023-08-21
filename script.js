@@ -45,8 +45,10 @@ function clearScreen() {
 
 function changeResolution() {
     let screenResolutionInput = prompt('Please enter a screen resolution between 1 & 100');
-    while (screenResolutionInput > 100 || screenResolutionInput < 1 ) {
-        let screenResolutionInput = prompt('Please enter a valid integer between 1 & 100');
+    while (screenResolutionInput > 100 || screenResolutionInput < 1 || Number.isInteger(parseFloat(screenResolutionInput)) == false ) {
+        screenResolutionInput = prompt('Please enter a valid integer between 1 & 100');
+        console.log(Number.isInteger(parseFloat(screenResolutionInput)))
+        console.log(screenResolutionInput)
     }
     screenResolution = screenResolutionInput;
     clearScreen();
