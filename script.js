@@ -1,8 +1,10 @@
 let screen = document.getElementById('screen');
 let resolutionButton = document.getElementById('change-resolution-button');
+let clearScreenButton = document.getElementById('clear-screen-button');
 let screenResolution = 16;
 
 resolutionButton.addEventListener('click', changeResolution);
+clearScreenButton.addEventListener('click', clearScreen)
 
 function loadScreen() {
     for (i = 0; i < screenResolution; i++) {
@@ -37,7 +39,8 @@ loadScreen();
 function clearScreen() {
     let screen = document.querySelector('.screen');
     let pixelRows = document.querySelectorAll('.pixelRow');
-    pixelRows.forEach( (pixelRow) => screen.removeChild(pixelRow))
+    pixelRows.forEach( (pixelRow) => screen.removeChild(pixelRow));
+    loadScreen();
 }
 
 function changeResolution() {
@@ -46,7 +49,5 @@ function changeResolution() {
         let screenResolutionInput = prompt('Please enter a valid integer between 1 & 100');
     }
     screenResolution = screenResolutionInput;
-    console.log(screenResolution);
     clearScreen();
-    loadScreen();
 }
