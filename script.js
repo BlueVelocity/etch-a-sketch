@@ -15,9 +15,14 @@ let rowNumber = 0;
 pixelRows.forEach( (element) => {
     for (i = 0; i < screenSize; i++) {
         let pixel = document.createElement("div");
-        pixel.setAttribute('id', `${rowNumber}-${i}`)
+        pixel.setAttribute('id', `${rowNumber}-${i}`);
         pixel.setAttribute('class', 'pixel')
         element.appendChild(pixel);
     }
     rowNumber++;
 });
+
+let pixels = document.querySelectorAll('.pixel');
+pixels.forEach( (pixel) => pixel.addEventListener('mouseover', () => {
+    pixel.setAttribute('style', 'background-color: black;')
+}));
