@@ -29,8 +29,16 @@ function loadScreen() {
     });
 
     let pixels = document.querySelectorAll('.pixel');
+
+    pixels.forEach( (pixel) => pixel.setAttribute('data-opacity', '0'))
+
     pixels.forEach( (pixel) => pixel.addEventListener('mouseover', () => {
-    pixel.setAttribute('style', 'background-color: black;');
+        let opacity = pixel.getAttribute('data-opacity');
+        if (opacity < 1) {
+            opacity = parseFloat(opacity) + 0.2;
+            pixel.setAttribute('data-opacity', `${opacity}`);
+        }
+        pixel.setAttribute('style', `background-color: black; opacity: ${opacity};`);
     }));
 }
 
