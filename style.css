@@ -16,3 +16,17 @@ html, body {
     border-color: black;
     padding: 50px;
 }
+
+.pixelRow {
+    display: flex;
+    flex-direction: row;
+}
+
+.pixel {
+    background-color: white;
+    border-style: solid;
+    border-width: 1px;
+    border-collapse: collapse;
+    height: 20px;
+    width: 20px;
+}
